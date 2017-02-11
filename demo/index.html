@@ -1,0 +1,66 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>nebula-appbar-layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script type="text/javascript" src="../../chance/chance.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="../nebula-appbar-layout.html">
+    <style is="custom-style">
+      html, body {
+        position: relative;
+        border: 0;
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        overflow-y: auto;
+        box-sizing: border-box;
+      }
+      [slot] {
+        padding: 8px;
+      }
+      [slot=header] {
+        background-color: darkred;
+        color: white;
+      }
+      [slot=content] {
+        border: 1px solid teal;
+        padding: 0 16px;
+      }
+      [slot=footer] {
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <template is="dom-bind" id="demo">
+      <nebula-appbar-layout>
+        <div slot="header">
+          Header
+        </div>
+        <div slot="content">
+          <template is="dom-repeat" items="{{paragraphs}}">
+            <p>[[item]]</p>
+          </template>
+        </div>
+        <div slot="footer">
+          Footer
+        </div>
+      </nebula-appbar-layout>
+    </template>
+    <script>
+      demo.paragraphs = [
+        chance.paragraph(),
+        chance.paragraph(),
+        chance.paragraph(),
+        chance.paragraph()
+      ]
+    </script>
+  </body>
+</html>

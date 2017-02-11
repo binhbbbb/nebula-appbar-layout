@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>nebula-appbar-layout</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+    <link rel="import" href="../nebula-appbar-layout.html">
+  </head>
+  <body>
+    <test-fixture id="basic">
+      <template>
+        <nebula-appbar-layout>
+          <div slot="header"></div>
+          <div slot="content"></div>
+          <div slot="footer"></div>
+        </nebula-appbar-layout>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('basic', function() {
+        var el
+        setup(function() {
+          el = fixture('basic')
+        })
+        test('element is created', function() {
+          assert.equal(el.is, 'nebula-appbar-layout')
+        })
+        test('element has header slot', function() {
+          assert.isOk(el.querySelector('[slot=header]'))
+        })
+        test('element has content slot', function() {
+          assert.isOk(el.querySelector('[slot=content]'))
+        })
+        test('element has footer slot', function() {
+          assert.isOk(el.querySelector('[slot=footer]'))
+        })
+      })
+    </script>
+  </body>
+</html>
