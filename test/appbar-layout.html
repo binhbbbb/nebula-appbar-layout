@@ -1,11 +1,10 @@
 <!doctype html>
-
 <html>
   <head>
     <title>nebula-appbar-layout</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
     <link rel="import" href="../nebula-appbar-layout.html">
   </head>
@@ -27,7 +26,7 @@
           el = fixture('basic')
         })
         test('element is created', function() {
-          assert.equal(el.is, 'nebula-appbar-layout')
+          assert.equal(el.constructor.is, 'nebula-appbar-layout')
         })
         test('element has header slot', function() {
           assert.isOk(el.querySelector('[slot=header]'))

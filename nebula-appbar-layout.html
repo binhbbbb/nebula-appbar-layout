@@ -1,80 +1,45 @@
-<!--
-@license
-Copyright (c) 2017 Ars Nebula LLC.
-This code may be used under the terms found in LICENSE.md of this repository.
--->
-
-<link rel="import" href="../polymer/polymer.html">
-
-<!--
-`<nebula-appbar-layout>` is a web component to display a layout with application bars.
-
-## Usage
-
-The element will automatically fill its parent container element.
-
-The element provides slots for header, footer and/or content areas. The header and footer slots will fit their content, while the content slot is fluid and scrollable.
-
-```html
-<nebula-appbar-layout>
-  <div slot="header"></div>
-  <div slot="content"></div>
-  <div slot="footer"></div>
-</nebula-appbar-layout>
-```
-
-## Style
-
-Add additional styles targeting each slot using the slot attribute:
-
-```css
-[slot=header] {
-  background-color: darkred;
-  color: white;
-  padding: 8px;
-}
-```
-
-@demo demo/index.html
--->
+<link rel="import" href="../polymer/polymer-element.html">
 
 <dom-module id="nebula-appbar-layout">
   <template>
     <style>
       :host {
         position: relative;
-        display: -ms-flexbox;
         display: -webkit-flex;
         display: flex;
-        -ms-flex-direction: column;
         -webkit-flex-direction: column;
         flex-direction: column;
+        -webkit-flex: 1 1 auto;
+        flex: 1 1 auto;
         box-sizing: border-box;
         overflow: hidden;
         margin: 0;
         padding: 0;
         border: 0;
-        height: 100%;
-        width: 100%;
       }
       :host ::slotted(*) {
         overflow: hidden;
       }
       :host ::slotted([slot=header]) {
-        -ms-flex: none;
         -webkit-flex: none;
         flex: none;
       }
       :host ::slotted([slot=content]) {
-        -ms-flex: 1 1 auto;
         -webkit-flex: 1 1 auto;
         flex: 1 1 auto;
         overflow-y: auto;
       }
       :host ::slotted([slot=footer]) {
-        -ms-flex: none;
         -webkit-flex: none;
         flex: none;
+      }
+      :host([hidden]) {
+        display: none;
+      }
+      :host([disabled]) {
+        pointer-events: none;
+        cursor: default;
+        opacity: var(--nebula-ui-disabled-opacity, 0.6);
       }
     </style>
     <slot name="header"></slot>
@@ -82,8 +47,14 @@ Add additional styles targeting each slot using the slot attribute:
     <slot name="footer"></slot>
   </template>
   <script>
-    Polymer({
-      is: 'nebula-appbar-layout'
-    })
+  (function() {
+    'use strict'
+
+    class NebulaAppbarLayout extends Polymer.Element {
+      static get is() { return 'nebula-appbar-layout' }
+    }
+
+    customElements.define(NebulaAppbarLayout.is, NebulaAppbarLayout)
+  }())
   </script>
 </dom-module>
