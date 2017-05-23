@@ -26,17 +26,14 @@
     "toolbar"
   ],
   "main": "nebula-appbar-layout.html",
-  "pages": {
-    "<nebula-appbar-layout>": "docs/nebula-appbar-layout.md"
-  },
   "demos": {
     "Demo": "demo/index.html"
   },
   "dependencies": {
-    "polymer": "Polymer/polymer#>=2.0.0-rc.1 <3.0"
+    "polymer": "Polymer/polymer#^2.0.0"
   },
   "devDependencies": {
-    "web-component-tester": "polymer/web-component-tester#>=6.0.0 || 6.0.0-prerelease.5",
+    "web-component-tester": "polymer/web-component-tester#^6.0.0",
     "nebula-test": "arsnebula/nebula-test#^2.0.0",
     "chance": "latest"
   }
